@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ETH Lottery - Details</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'lottery/style.css' %}">
+  </head>
+  <body style="background-image: none; background-color: #004d00; text-align: center">
+    <h1 style="color: white; text-align: center">Lottery Details</h1>
+    
+    <form id="getIndexForm" action="{% url 'lottery:checkIndex' %}" method="post">
+        {% csrf_token %}
+        <br>
+        <label id="index_info">If you participated this game you can check your index by typing lottery ID and your account address:</label><br><br>
+        <label for="lottery_id">Enter lottery ID from below:</label><br>
+        <input style="margin: 5px; width: 40%" id="lottery_id" type="number" name="lottery_id" min="1" required><br><br>
+        <label for="your_address">Your account address:</label><br>
+        <input style="margin: 5px; width: 40%" id="your_address" type="text" name="your_address" maxlength=100 required><br><br>
+        <input id="checkButton" type="submit" value="Check">
+    </form>
+    
+    <br><br>
+    
+    <table id="tableInfo" border="1">
+        <tr>
+            <th>Lottery ID:</th>
+            <td>{{ lottery_details.lotteryID }}</td>
+        </tr>
+        <tr>
+            <th>Address of lottery creator:</th>
+            <td>{{ lottery_details.creatorAddress }}</td>
+        </tr>
+        <tr>
+            <th>Game status:</th>
+            <td>{{ lottery_details.gameStatus }}</td>
+        </tr>
+        <tr>
+            <th>Current amount of ether invested in game:</th>
+            <td>{{ lottery_details.currentGameValue }}</td>
+        </tr>
+        <tr>
+            <th>Current minimum amount of ether <br>that you have to invest to participate:</th>
+            <td>{{ lottery_details.amountToInvest }}</td>
+        </tr>
+        <tr>
+            <th>Current number of participants in this game:</th>
+            <td>{{ lottery_details.currentNumOfBets }}</td>
+        </tr>
+        <tr>
+            <th>Game capacity (max number of participants):</th>
+            <td>{{ lottery_details.gameCapacity }}</td>
+        </tr>
+        <tr>
+            <th>Winning index:</th>
+            <td>{{ lottery_details.winnerIndex }}</td>
+        </tr>
+        <tr>
+            <th>Winner's address:</th>
+            <td>{{ lottery_details.winnerAddress }}</td>
+        </tr>
+    </table>
+    
+    <br>
+    <p style="color: white; text-align: center; font-size: 25px">Current list of bets in lottery with ID = {{ lottery_details.lotteryID }}:</p>
+    
+    <table class="betList" border="1" style="border: 1px solid white; margin: auto; width: 75%; color: white; border-collapse: collapse; text-align: center">
+        <tr>
+            <th style="font-size: 20px; padding: 1">Bet index</th>
+            <th style="font-size: 20px; padding: 1">Gambler address</th>
+            <th style="font-size: 20px; padding: 1">Invested amount (ether)</th>
+            <th style="font-size: 20px; padding: 1">Bet status</th>
+        </tr>
+        {% for bet in lottery_details.currentBets %}
+            <tr>
+                <td>{{ bet.bet_index }}</td>
+                <td>{{ bet.gambler_address }}</td>
+                <td>{{ bet.invested_amount }}</td>
+                <td>{{ bet.bet_status }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <button onClick="window.location.reload();">Refresh List</button>
+    <br><br>
+  </body>
+</html>

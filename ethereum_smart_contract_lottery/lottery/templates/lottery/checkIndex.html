@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ETH Lottery - Check Index</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'lottery/style.css' %}">
+  </head>
+  <body id="bodyIndexCheck">
+    <h1 class="pageTitle">Index Checking</h1><br>
+    <h2>Your account address: {{ data_and_index.account_addr }}</h2>
+    <h2>Lottery ID: {{ data_and_index.lottery_id }}</h2>
+    <h2>Your index: {{ data_and_index.index }}</h2>
+  </body>
+</html>

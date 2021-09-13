@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ETH Lottery - Status</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'lottery/style.css' %}">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+  </head>
+  <body id="bodyStatus" style="text-align: center; color: white">
+    <br><br><br><br><br><br>
+    {% if status_id == 0 %}<h1>Status:<br>Successfully created lottery</h1>{% endif %}
+    {% if status_id == 5 %}<h1>Status:<br>Successfully joined lottery</h1>{% endif %}
+    {% if status_id == 1 %}<h1>Status: Error 1</h1><p>Invalid account address!</p>{% endif %}
+    {% if status_id == 2 %}<h1>Status: Error 2</h1><br><p>Invalid number of participants!<br>(Please enter integer between 2 and 1000)</p>{% endif %}
+    {% if status_id == 3 %}<h1>Status: Error 3</h1><br><p>Invalid value to invest<br>(Please check minimum value that you have to invest)</p>{% endif %}
+    {% if status_id == 4 %}<h1>Status: Error 4</h1><br><p>Invalid private key!</p>{% endif %}
+    {% if status_id == 7 %}<h1>Status: Error 7</h1><br><p>Invalid lottery ID!</p>{% endif %}
+    {% if status_id == 10 %}<h1>Status: Error 10</h1><br><p>Game didn't start or already completed!</p>{% endif %}
+    {% if status_id == 11 %}<h1>Status: Error 11</h1><br><p>Failed to send your transaction!</p>{% endif %}
+    {% if status_id == 12 %}<h1>Status: Error 12</h1><br><p>Your account address is invalid!</p>{% endif %}
+    {% if status_id == 13 %}<h1>Status: Error 13</h1><br><p>Invalid contract address!</p>{% endif %}
+    {% if status_id == 14 %}<h1>Status: Error 14</h1><br><p>Contract not found!</p>{% endif %}
+    <br>
+    <button id="backButton" onclick="goBack()">Go Back</button>
+
+  </body>
+</html>
