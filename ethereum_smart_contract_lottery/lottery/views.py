@@ -47,7 +47,7 @@ def listLotteries(request):
     ganache_url = "HTTP://127.0.0.1:7545"
     web3 = Web3(Web3.HTTPProvider(ganache_url))
     
-    compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery2/lottery/smart_contract.sol')
+    compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery/lottery/smart_contract.sol')
     contract_id, contract_interface = compiled_contract.popitem()
     gambling_contract = web3.eth.contract(address = '0xb6eF88560d255bA8766462F161f415160613FC02', abi = contract_interface['abi'])
     
@@ -88,7 +88,7 @@ def create_form_handling(request):
                 status_id = 1
                 return render(request, 'lottery/statusPage.html', {'status_id': status_id})
             
-            compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery2/lottery/smart_contract.sol')
+            compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery/lottery/smart_contract.sol')
             contract_id, contract_interface = compiled_contract.popitem()
             
             gambling_contract = web3.eth.contract(address = '0xb6eF88560d255bA8766462F161f415160613FC02', abi = contract_interface['abi'])
@@ -159,7 +159,7 @@ def join_form_handling(request):
                 status_id = 1
                 return render(request, 'lottery/statusPage.html', {'status_id': status_id})
             
-            compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery2/lottery/smart_contract.sol')
+            compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery/lottery/smart_contract.sol')
             contract_id, contract_interface = compiled_contract.popitem()
             
             lotteryID = form.cleaned_data['lottery_id']
@@ -233,7 +233,7 @@ def lotteryInfo(request, lottery_id):
     ganache_url = "HTTP://127.0.0.1:7545"
     web3 = Web3(Web3.HTTPProvider(ganache_url))
     
-    compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery2/lottery/smart_contract.sol')
+    compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery/lottery/smart_contract.sol')
     contract_id, contract_interface = compiled_contract.popitem()
     
     gambling_contract = web3.eth.contract(address = contractAddress, abi = contract_interface['abi'])
@@ -308,7 +308,7 @@ def checkIndex(request):
             status_id = 13
             return render(request, 'lottery/statusPage.html', {'status_id': status_id})
         
-        compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery2/lottery/smart_contract.sol')
+        compiled_contract = compile_source_file('/home/djordje/ethereum_smart_contract_lottery/lottery/smart_contract.sol')
         contract_id, contract_interface = compiled_contract.popitem()
         
         try:
