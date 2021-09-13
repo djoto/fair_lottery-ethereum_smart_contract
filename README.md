@@ -14,9 +14,11 @@ To test this project follow the instructions below:
    For example my address is 0xb6eF88560d255bA8766462F161f415160613FC02 and you have to change every appearence of this address
    to address of your deployed smart contract in ethereum_smart_contract_lottery/lottery/views.py file.
  
-4. Go to project directory: cd fair_ethereum_smart_contract_lottery/ethereum_smart_contract_lottery
+4. Go to project directory: 
+   $ cd fair_ethereum_smart_contract_lottery/ethereum_smart_contract_lottery
 
-5. Run django server: python manage.py runserver
+5. Run django server: 
+   $ python manage.py runserver
 
 6. Go to http://localhost:8000/lottery to open lottery web application 
 
