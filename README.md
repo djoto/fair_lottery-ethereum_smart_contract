@@ -1,4 +1,4 @@
-# fair_ethereum_smart_contract_lottery
+# fair_lottery-ethereum_smart_contract
 
 Project: Learning ethereum smart contract and blockchain technology
 
